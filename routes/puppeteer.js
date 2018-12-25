@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var scraper = require('scraper')
+// import scraper from './utils/scraper';
 
 /* go to Nest website */
 router.get('/', function(req, res, next) {
