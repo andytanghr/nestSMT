@@ -110,3 +110,5 @@ typings/
 
 # Chromium
 .app
+
+.env
