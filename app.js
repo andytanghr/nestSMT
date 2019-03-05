@@ -30,7 +30,7 @@ app.use('/puppeteer', puppeteerRouter);
 // app.use('/services', servicesRouter);
 
 
-// console.log('running');
+console.log('running');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

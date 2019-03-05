@@ -1,14 +1,18 @@
- const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer');
 
 async function scraper() {
   const browser = await puppeteer.launch( {headless: false} );
   const page = await browser.newPage();
   await page.goto('https://www.smartmetertexas.com/smt/tPartyAgreementsLogin/public/smt_login.jsp', { waitUntil: 'networkidle2'});
-  await page.type('#username', process.env.USERNAME);
-  await page.type('#txtPassword', process.env.TXTPASSWORD);
+  // await page.type('#username', process.env.USERNAME);
+  // await page.type('#txtPassword', process.env.TXTPASSWORD);
+  
+  await console.log('scraper js invoked');
 
 
+/*
   await Promise.all([
+    
     // page.click(' select[name="reportType"] ');
     // page.waitForNavigation( {waitUntil: 'networkidle0' });
 
@@ -45,9 +49,23 @@ async function scraper() {
         'consumption': Number(consumption)
       };
     }),
-  
-    browser.close()
+
+
+
+
+    
   ]);
+*/
+
+
+
+  await page.evaluate( () => {
+    let testText = document.querySelectorAll('.access')[0].innerText;
+    // console.log(testText);
+    return { 'testProp': document.querySelectorAll('.access')[0].innerHTML };
+  });
+
+  // browser.close();
 };
 
 module.exports = scraper;
