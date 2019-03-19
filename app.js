@@ -9,7 +9,7 @@ require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var puppeteerRouter = require('./routes/puppeteer');
+var smtRouter = require('./routes/smtRoute');
 const nestRouter = require('./routes/nestRoute');
 // var servicesRouter = require('./services');
 
@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/puppeteer', puppeteerRouter);
+app.use('/smt', smtRouter);
 app.use('/nest', nestRouter);
 // app.use('/services', servicesRouter);
 

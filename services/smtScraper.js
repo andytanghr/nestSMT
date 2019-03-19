@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-// const HTMLParser = require('node-html-parser');
+const HTMLParser = require('node-html-parser');
 // import { parse } from 'node-html-parser';
 
 async function scraper(settings) {
@@ -9,7 +9,13 @@ async function scraper(settings) {
   const browser = await puppeteer.launch( {headless: false} );
   const page = await browser.newPage();
   await page.goto('https://www.smartmetertexas.com/smt/tPartyAgreementsLogin/public/smt_login.jsp', { waitUntil: 'load'} );
-  
+
+  // const skip = await page.$('.skip');
+  // console.log(skip.innerHTML);
+  // // const getSkip = await page.evaluate( () => document.querySelector('.skip'));
+  // const getSkip = await HTMLParser.parse( page.content() ).querySelector('.skip');
+  // console.log(getSkip.innerHTML);
+
   await page.type('#username', settings.username);
   await page.type('#txtPassword', settings.txtpassword);
   await page.keyboard.press('Enter');
